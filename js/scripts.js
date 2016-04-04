@@ -1,6 +1,7 @@
-function Contact(first, last) {
+function Contact(first, last, contactAddress) {
   this.firstName = first;
   this.lastName = last;
+  this.address = contactAddress;
 }
 
 Contact.prototype.fullName = function() {
@@ -14,8 +15,9 @@ $(document).ready(function() {
 
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
+    var inputtedAddress = $("input#new-address").val();
 
-    var newContact = new Contact(inputtedFirstName, inputtedLastName);
+    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedAddress);
 
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
@@ -24,9 +26,11 @@ $(document).ready(function() {
       $("#show-contact h2").text(newContact.firstName);
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
+      $(".address").text(newContact.address);
     });
 
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
+    $("input#new-address").val("");
   });
 });
