@@ -22,7 +22,7 @@ Address.prototype.fullAddress = function() {
 function resetFields() {
   $("input#new-first-name").val("");
   $("input#new-last-name").val("");
-  $("input#new-address-type").val("");
+  $("input.new-address-type").val("");
   $("input.new-street").val("");
   $("input.new-city").val("");
   $("input.new-state").val("");
@@ -32,7 +32,8 @@ function resetFields() {
 $(document).ready(function() {
 
   $("#add-address").click(function() {
-    $("#new-addresses").append('________________________________________________' +
+    $("#new-addresses").append( '<div class="hideWhenSubmitted">' +
+                                '________________________________________________' +
                                 '<div class="new-address">' +
                                   '<div class="form-group">' +
                                     '<label for="new-address-type">Address Type</label>' +
@@ -50,6 +51,7 @@ $(document).ready(function() {
                                    '<label for="new-state">State</label>' +
                                    '<input type="text" class="form-control new-state">' +
                                  '</div>' +
+                               '</div>' +
                                '</div>');
   });
 
@@ -85,6 +87,9 @@ $(document).ready(function() {
     });
 
     resetFields();
+
+    $(".hideWhenSubmitted").not("#new-contact").remove();
+    // $(".hideWhenSubmitted").remove(); This works as well
 
   });
 });
