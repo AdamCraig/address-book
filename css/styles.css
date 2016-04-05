@@ -1,5 +1,11 @@
+body {
+  background-color: black;
+  color: white;
+}
+
 #show-contact {
   display: none;
+  font-size: 30px;
 }
 
 .bold {
@@ -13,4 +19,8 @@
 
 .contact:hover {
   text-decoration: underline;
+}
+
+#contacts {
+  font-size: 30px;
 }
